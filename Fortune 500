@@ -1,0 +1,29 @@
+which industry has an average revenue of least 100 billion and what are their avg revenues
+SELECT industry, ROUND(AVG(revenue),1)as avg_revenue_billions
+FROM fortune_companies 
+GROUP BY industry 
+HAVING avg_revenue_billions>=100;
+
+Assign companies in finance where maternity leave and paid time off is acceptable 
+SELECT company_name, 
+CASE WHEN maternity_leave_weeks>=10 THEN "mother friendly workplace" 
+WHEN paid_time_off_days>=5 THEN "acceptable" 
+END as "mother_friendly_timeoff 
+FROM fortune_companies
+WHERE industry="Finance"; 
+
+which companies have healthcare benefits and at least 10 off days? 
+SELECT company_name 
+FROM fortunate_companies
+WHERE healthcare_benefits=1 
+AND paid_time_off_days>=10;
+
+which retail company had the most employees? 
+SELECT company_name, max(employees) 
+FROM fortune_companies
+WHERE industry= "Retail"; 
+
+whats the average revenue for a company that works in healthcare? 
+SELECT company_name, AVG(revenue)
+FROM fortune_companies
+WHERE industry="Healthcare";
